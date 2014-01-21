@@ -1,0 +1,20 @@
+<div id="hero">
+	<div class="container">
+		<h1>PING KONG</h1>
+		<p>A better way to play</p>
+		<a href="/matches/new"> Create a new match</a>
+		<a href="/leaderboard"> View Leaderboard</a>
+	</div>
+</div>
+<div id="board">
+	<table>
+		<tr><th><h1>Recent Matches</h1></th></tr>
+		<% @matches.each do |g| %>
+			<tr>
+				<td>
+					<h2><%= "#{g.user.name} def #{g.opponent_name}" %></h2>
+				</td>
+			</tr>
+		<% end %>
+	</table>
+</div>

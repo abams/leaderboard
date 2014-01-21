@@ -1,0 +1,13 @@
+<div>
+	<%= button_to 'Create a new Match', new_match_path, method: :get %>
+	<%= button_to 'View Recent Matches', matches_path, method: :get %>
+</div>
+<div>
+<p></p>
+<table>
+	<tr><th>Matches</th></tr>
+	<% @data.each do |k, v| %>
+	<tr><td><%= "#{k.to_s}: #{v}" %></td></tr>
+	<% end %>
+</table>
+</div>

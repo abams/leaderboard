@@ -1,0 +1,11 @@
+<% @page_title = "UserAuth | Login" -%>
+<div id="hero">
+  <h1>Log in</h1>
+  <%= form_tag login_path, method: :post do %>
+  	<%= flash[:notice] %>
+    <p>Username or Email:</br> <%= text_field_tag(:username_or_email) %></p>
+    <p>Password:</br> <%= password_field_tag :password %></p>
+    <%= submit_tag("Log In") %>
+  <% end %>
+	<a href="/sessions/new"> Or Signup</a>
+</div>

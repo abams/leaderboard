@@ -1,0 +1,2 @@
+class WinningMatch < Match
+end
