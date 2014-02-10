@@ -1,0 +1,17 @@
+Your avatar:
+<% if @user.id == @current_user.id %>
+	<% if @user.avatar? %>
+		<div class="avatar">
+			<%= image_tag @user.avatar.url(:medium), class: 'avatar' %>
+		</div>
+	<% else %>
+		<div class="avatar-name">
+			 <%= @user.username %>
+		</div>
+	<% end %>
+<% else %>
+
+<% end %>
+
+Update your avatar:
+<%= render 'avatar' %>

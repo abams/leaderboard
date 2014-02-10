@@ -1,0 +1,3 @@
+class Win < Game
+end
+

@@ -1,0 +1,2 @@
+class Loss < Game
+end

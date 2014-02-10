@@ -11,34 +11,31 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140127290611) do
+ActiveRecord::Schema.define(version: 20140209214014) do
 
-  create_table "leagues", force: true do |t|
-    t.string   "name"
-    t.string   "slug"
+  create_table "games", force: true do |t|
+    t.integer  "winner_id",  null: false
+    t.integer  "loser_id",   null: false
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
-  create_table "leagues_users", force: true do |t|
-    t.integer "user_id"
-    t.integer "league_id"
-  end
-
-  create_table "matches", force: true do |t|
-    t.integer  "league_id",  null: false
-    t.string   "type"
-    t.text     "score"
+  create_table "rankings", force: true do |t|
+    t.integer  "user_id"
+    t.integer  "month"
+    t.integer  "score",      default: 0, null: false
+    t.integer  "rank"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
   create_table "users", force: true do |t|
-    t.string   "username"
-    t.string   "email"
-    t.string   "password"
+    t.string   "username",           null: false
+    t.string   "email",              null: false
+    t.string   "password",           null: false
     t.string   "encrypted_password"
     t.string   "salt"
+    t.string   "avatar_file_name"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

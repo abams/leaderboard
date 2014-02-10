@@ -1,0 +1,22 @@
+<div id="leaderboard">
+  <table>
+    <h1 style="padding-top:15px; padding-bottom:2px;">Recent Games</h1>
+    <% @games.each do |game| %>
+      <tr>
+        <td>
+          <p><%= image_tag game.winner.avatar.url(:medium), class: 'avatar-small', title: "#{game.winner.username}" %></p>
+        </td>
+        <td>- DEF -</td>
+        <td>
+          <p><%= image_tag game.loser.avatar.url(:medium), class: 'avatar-small', title: "#{game.loser.username}" %></p>
+        </td>
+      </tr>
+    <% end %>
+  </table>
+</div>
+<div id="hero">
+	<p>
+		<a href="/games/new">Create a New Game</a>
+		<a href="/leaderboard">View Leaderboard</a>
+		</p>
+</div>

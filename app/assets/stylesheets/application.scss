@@ -1,0 +1,187 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+ * or vendor/assets/stylesheets of plugins, if any, can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any styles
+ * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
+ * file per style scope.
+ *
+ *= require_tree .
+ *= require_self
+ */
+
+::-webkit-input-placeholder { color: white; }
+input:-webkit-autofill { color: transparent !important; }
+
+html {
+  height: 100%;
+}
+
+body {
+	height: 100%;
+  margin: 0;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+	background-image: -webkit-linear-gradient(#5CCCCC, #009999);
+	background-image: linear-gradient(#34D1B2, #00A383);
+}
+
+#home {
+	background-color: white;
+	margin: auto;
+	height: auto;
+	padding: 20px 0 20px 0;
+
+}
+
+#hero {
+	text-align: center;
+	font-family: arial;
+	color: white;
+	padding: 2em 0 1em 0;
+	font-size: 1em;
+
+	.container {
+		text-align: center;
+		margin: 0 auto;
+	}
+
+	h1 {
+		text-align: center;
+		font-weight: 100;
+		margin: 0;
+		font-size: 3em;
+	}
+
+	p {
+		text-align: center;
+		color: white;
+		border-radius: 1em;
+		text-decoration: none;
+		text-align: center;
+		margin: 0.5em 0 1.75em 0;
+	}
+
+	a {
+		text-align: center;
+		color: white;
+		display: inline-block;
+		padding: 1em;
+		border: 1px solid white;
+		border-radius: 1em;
+		text-decoration: none;
+	}
+}
+
+#opponents {
+	h1 {
+		text-align: center;
+		font-family: arial;
+		font-size: 2em;
+		font-weight: 100;
+		color: white;
+	}
+
+	table {
+		margin: auto auto;
+	}
+}
+
+input.login {
+	color: white;
+	font-size: 20px;
+  height: 25px;
+  width: 300px;
+  background-color: transparent;
+  border-width: 0px 0px 1px 0px;
+  border-color: white;
+  /*outline:0;*/
+  position: relative;
+}
+
+label.login {
+	font-color: white;
+	font-size: 20px;
+}
+
+.submit {
+	background-color: transparent;
+	color: white;
+	font-family: arial;
+	font-size: 1em;
+	text-align: center;
+	display: inline-block;
+	padding: 0.8em;
+	border: 1px solid white;
+	border-radius: 1em;
+	text-decoration: none;
+}
+
+.avatar {
+	border: 2px solid white;
+	width: 150px;
+	height: 150px;
+	-webkit-border-radius: 100px;
+	border-radius: 100px;
+}
+
+.avatar-small {
+	border: 2px solid white;
+	width: 75px;
+	height:75px;
+	-webkit-border-radius: 100px;
+	border-radius: 100px;
+}
+
+.avatar-home {
+	border: 2px solid white;
+	width: 350px;
+	height: 350px;
+	-webkit-border-radius: 300px;
+	border-radius: 300px;
+	text-align: center;
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+#leaderboard {
+	font-color: white;
+
+	h1 {
+		text-align: center;
+		font-family: arial;
+		font-size: 2em;
+		font-weight: 100;
+		color: white;
+	}
+
+	table {
+		text-align: center;
+		margin: 0 auto;
+	  text-align: left;
+	}
+
+	tr {
+		padding: 1px;
+	}
+
+	td {
+		color: white;
+		padding: 10px;
+		font-size: 20px;
+		font-family: arial;
+	}
+
+	h2 {
+		font-color: white;
+		text-align: center;
+		font-weight: 100;
+		font-size: 18px;
+		padding-top: -500px;
+	}
+}

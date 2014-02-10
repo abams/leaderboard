@@ -1,4 +1,0 @@
-<% @users.each do |u| %>
-	<% next if u.id == @current_user.id %>
-	<%= button_to "#{u.username}", matches_path(u.id, opponent_name: "#{u.username}", opponent_id: "#{u.id}") %>
-<% end %>

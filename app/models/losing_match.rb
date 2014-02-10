@@ -1,2 +1,0 @@
-class LosingMatch < Match
-end

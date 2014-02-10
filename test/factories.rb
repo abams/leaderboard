@@ -1,15 +1,19 @@
 FactoryGirl.define do
 
-	factory :user do
+	factory :user, :aliases => [:winner, :loser] do
     sequence(:username) { |n| "abcde#{n}"}
     sequence(:email) { |n| "valid_email#{n}@email.com"}
     sequence(:password) { |n| "passw#{n}rd"}
   end
 
-  factory :league do
-  	sequence(:name) { |n| "league#{n}" }
+  factory :game do
+    winner
+    loser
   end
 
-  factory :match do
+  factory :ranking do
+    user
+    score 100
   end
+
 end

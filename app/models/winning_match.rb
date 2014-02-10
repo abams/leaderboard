@@ -1,2 +1,0 @@
-class WinningMatch < Match
-end

@@ -1,7 +1,7 @@
 module UsersHelper
 
 	def require_user
-  	redirect_to '/login' unless current_user
+  	redirect_to '/signup' unless current_user
   end
 
   def current_user

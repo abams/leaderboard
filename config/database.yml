@@ -8,3 +8,7 @@ development: &default
 test:
   <<: *default
   database: leaderboard_test
+
+production:
+  <<: *default
+  database: leaderboard_development

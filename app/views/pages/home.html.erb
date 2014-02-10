@@ -1,0 +1,25 @@
+<body>
+  <div id='hero'>
+    <h1>Welcome to PingPong</h1>
+    <p><%= image_tag User::DEFAULT_AVATAR_URL, class: 'avatar-home' %></p>
+    <a href="/signup">Let's Get Started</a>
+  </div>
+  <div id='home'>
+    <div id="leaderboard">
+      <table>
+        <h1 style="color:gray; padding-top:15px; padding-bottom:2px;">Recent Games</h1>
+        <% @games.each do |game| %>
+          <tr>
+            <td>
+              <p><%= image_tag game.winner.avatar.url(:medium), class: 'avatar-small', style: 'border: 2px solid gray;', title: "#{game.winner.username}" %></p>
+            </td>
+            <td style="color:gray;">- DEF -</td>
+            <td>
+              <p><%= image_tag game.loser.avatar.url(:medium), class: 'avatar-small', style: 'border: 2px solid gray;', title: "#{game.loser.username}" %></p>
+            </td>
+          </tr>
+        <% end %>
+      </table>
+    </div>
+  </div>
+</body>

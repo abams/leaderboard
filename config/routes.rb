@@ -1,11 +1,12 @@
 Rails.application.routes.draw do
-  root :to => 'leaderboards#index'
+  root :to => 'pages#home'
 
-  resources :matches, only: [:new, :create, :index]
+  resources :games, only: [:new, :create, :index]
   resources :leagues, only: [:new, :create, :show, :destroy]
+  resources :users, only: [:show, :edit, :update]
 
   get '/leaderboard' => 'leaderboards#index'
-  get '/sessions/new' => 'sessions#new'
+  get '/signup' => 'sessions#new'
   get '/login' => 'sessions#login'
   post '/login' => 'sessions#login_attempt'
   post '/sessions/create' => 'sessions#create'
