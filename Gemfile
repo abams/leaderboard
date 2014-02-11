@@ -7,6 +7,12 @@ gem 'rails', '4.0.0'
 
 gem 'pg'
 
+# Key value store
+gem 'redis'
+
+# Job Queue
+gem 'sidekiq'
+
 gem 'bcrypt-ruby', require: 'bcrypt'
 
 # Use SCSS for stylesheets
@@ -40,6 +46,9 @@ gem 'spring', group: :development
 # Used to generate tokens
 gem 'base62'
 
+# HTTP
+gem 'faraday', require: false
+
 group :test, :development do
   # Great debug output
   gem 'awesome_print'
@@ -54,6 +63,11 @@ group :test do
 
   gem 'minitest-colorize'
 
+  # Intercept HTTP requests
+  gem 'webmock'
+
   # Simple factories
   gem 'factory_girl'
+
+  gem 'mocha', require: false
 end
