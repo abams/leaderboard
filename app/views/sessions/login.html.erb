@@ -1,11 +1,11 @@
 <body>
-  <div id='hero'>
+  <div id="hero">
     <div class="container">
       <h1>Log in</h1>
       <%= form_tag login_path, method: :post do%>
       	<%= flash[:notice] %>
-        <p><%= text_field_tag :username_or_email, "id", class: "login" %></p>
-        <p><%= password_field_tag :password, "password", class: "login" %></p>
+        <p><%= text_field_tag :username_or_email, "id", value: "", placeholder: "username or email", class: "login" %></p>
+        <p><%= password_field_tag :password, "password", value: "", placeholder: "password", class: "login" %></p>
         <%= submit_tag "Log In", class: "submit" %>
       <% end %>
     	<p><a href="/signup">Or Signup</a></p>

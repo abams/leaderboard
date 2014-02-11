@@ -3,10 +3,10 @@
 		<%= flash[:notice] %>
 		<%= form_for @user, url: '/sessions/create', method: :post, :html => { multipart: true }, id: 'login-form' do |f| %>
 		  <h1>Create an Account</h1>
-		  <p><%= f.text_field :username, placeholder: 'username', autocomplete: :off, class: "login" %></p>
-		  <p><%= f.text_field :email, placeholder: 'email', autocomplete: :off, class: "login" %></p>
-		  <p><%= f.password_field :password, placeholder: 'password', autocomplete: :off, class: "login" %></p>
-		  <p><%= f.password_field :password_confirmation, placeholder: 'confirm password', autocomplete: :off, class: "login" %></p>
+		  <p><%= f.text_field :username, value: '', placeholder: 'username', autocomplete: :off, class: "login" %></p>
+		  <p><%= f.text_field :email, value: '', placeholder: 'email', autocomplete: :off, class: "login" %></p>
+		  <p><%= f.password_field :password, value: '', placeholder: 'password', autocomplete: :off, class: "login" %></p>
+		  <p><%= f.password_field :password_confirmation, value: '', placeholder: 'confirm password', autocomplete: :off, class: "login" %></p>
 		  <p><%= f.label "Avatar" %> <%= f.file_field :avatar %></p>
 		  <%= f.submit 'Submit', class: "submit" %>
 		<% end %>
