@@ -43,6 +43,7 @@ GEM
       json (~> 1.4)
       nokogiri (>= 1.4.4)
       uuidtools (~> 2.1)
+    base62 (1.0.0)
     bcrypt-ruby (3.0.1)
     builder (3.1.4)
     climate_control (0.0.3)
@@ -148,6 +149,7 @@ PLATFORMS
 DEPENDENCIES
   awesome_print
   aws-sdk
+  base62
   bcrypt-ruby
   coffee-rails (~> 4.0.0)
   factory_girl

@@ -3,6 +3,13 @@ class Ranking < ActiveRecord::Base
 
   scope :for_month, -> { where(month: Time.current.strftime('%Y%m')) }
 
+  def self.default_serialization_options
+    {
+      only: [:score],
+      include: { user: User.default_serialization_options }
+    }
+  end
+
   def update_score(opponent_score, result)
     diff = opponent_score - score
     weight = diff / 5

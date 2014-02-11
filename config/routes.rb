@@ -12,4 +12,14 @@ Rails.application.routes.draw do
   post '/sessions/create' => 'sessions#create'
   match '/signout' => 'sessions#destroy', :as => :signout, via: [:get, :post]
   match 'auth/failure' => 'sessions#failure', via: [:get, :post]
+
+  namespace :api, defaults: { format: 'json' } do
+    namespace :v1, defaults: { format: 'json' } do
+      get '/leaderboard' => 'leaderboards#index'
+      post '/login' => 'authentication#login'
+      post '/signup' => 'authentication#signup'
+
+      resources :games, only: [:new, :create]
+    end
+  end
 end

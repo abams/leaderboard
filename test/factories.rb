@@ -14,6 +14,7 @@ FactoryGirl.define do
   factory :ranking do
     user
     score 100
+    month Time.current.strftime('%Y%m')
   end
 
 end

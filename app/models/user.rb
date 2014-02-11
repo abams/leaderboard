@@ -9,7 +9,7 @@ class User < ActiveRecord::Base
   validates :password, confirmation: true
   validates_length_of :password, in: 6..20, on: :create
 
-  before_save :encrypt_password, :assign_avatar
+  before_save :encrypt_password, :assign_avatar, :set_access_token
 	after_save :clear_password
 
 	BUCKET = 'pongpong'
@@ -24,6 +24,24 @@ class User < ActiveRecord::Base
 			medium: "300x300#",
 			thumb: "100x100#"
 		}
+
+	def self.default_serialization_options
+    {
+      only: [:id, :username],
+      methods: [:avatar_url]
+    }
+  end
+
+  def self.personal_serialization_options
+  	{
+      only: [:id, :username, :access_token],
+      methods: [:avatar_url]
+    }
+  end
+
+  def as_personal_json(options = {})
+    self.as_json(self.class.personal_serialization_options)
+  end
 
 	def self.authenticate(options = {})
 	  user = if EMAIL_REGEX.match options[:username_or_email]
@@ -43,7 +61,18 @@ class User < ActiveRecord::Base
 		rankings.where(month: Time.current.strftime('%Y%m')).first
 	end
 
+	def avatar_url
+		avatar.url(:medium)
+	end
+
 	private
+
+	def set_access_token
+    return unless access_token.blank?
+    begin
+      self.access_token = SecureRandom.hex
+    end while self.class.exists?(access_token: self.access_token)
+  end
 
 	def encrypt_password
 	  if password.present?

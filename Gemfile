@@ -37,6 +37,9 @@ gem 'sdoc', group: :doc, require: false
 # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/jonleighton/spring
 gem 'spring', group: :development
 
+# Used to generate tokens
+gem 'base62'
+
 group :test, :development do
   # Great debug output
   gem 'awesome_print'

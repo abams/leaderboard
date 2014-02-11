@@ -37,6 +37,6 @@ class Game < ActiveRecord::Base
   end
 
   def current_month
-    @month ||= Time.current.strftime('%Y%m')
+    @current_month ||= Time.current.strftime('%Y%m')
   end
 end
