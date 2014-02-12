@@ -4,7 +4,6 @@
 		<% @rankings.each_with_index do |ranking, i| %>
 			<tr>
 				<td><%= image_tag ranking.user.avatar.url(:medium), class: 'avatar-small' %></td>
-				<td><%= i + 1 %></td>
 				<td><%= ranking.user.username %></td>
 				<td><%= ranking.score %>
 			</tr>
