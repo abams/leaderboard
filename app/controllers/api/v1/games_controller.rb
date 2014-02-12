@@ -5,7 +5,8 @@ class Api::V1::GamesController < Api::V1::BaseController
   end
 
   def create
-    Game.create!(winner_id: current_user.id, loser_id: params[:opponent_id])
+    game = Game.create!(winner_id: current_user.id, loser_id: params[:opponent_id])
+    SlackReportingWorker.perform_async(game.id)
     head :created
   end
 end

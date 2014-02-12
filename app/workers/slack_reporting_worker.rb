@@ -1,0 +1,23 @@
+class SlackReportingWorker
+  include Sidekiq::Worker
+
+  def perform(game_id)
+    return unless @game = Game.find_by(id: game_id)
+    SlackNotifier.new(options).deliver
+  end
+
+  private
+
+  def options
+    {
+      message: message,
+      channel: 'pingpong-private'
+    }
+  end
+
+  def message
+    "#{@game.winner.username} defeated #{@game.loser.username}!
+     #{@game.winner.username} now has #{@game.winner.rankings.for_current_month.score} points.
+     #{ENV['LEADERBOARD_URL']}"
+  end
+end

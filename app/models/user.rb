@@ -13,7 +13,7 @@ class User < ActiveRecord::Base
 	after_save :clear_password
 
 	BUCKET = 'pongpong'
-	DEFAULT_AVATAR_URL = "https://s3-us-west-2.amazonaws.com/#{BUCKET}/avatars/default/default_1.jpg"
+	DEFAULT_AVATAR_URL = "https://#{ENV['S3_ENDPOINT']}/#{BUCKET}/avatars/default/default_1.jpg"
 
 	has_attached_file :avatar,
 		bucket: BUCKET,
