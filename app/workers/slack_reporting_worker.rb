@@ -1,5 +1,5 @@
 class SlackReportingWorker
-  include Sidekiq::Worker
+  # include Sidekiq::Worker
 
   def perform(game_id)
     return unless @game = Game.find_by(id: game_id)

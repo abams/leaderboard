@@ -9,7 +9,10 @@ class GamesController < ApplicationController
 	end
 
 	def create
-		Game.create!(winner_id: current_user.id, loser_id: params[:opponent_id])
+		game = Game.create!(winner_id: current_user.id, loser_id: params[:opponent_id])
+
+		# Change to async whe worker dyno spun up on heroku
+    SlackReportingWorker.new.perform(game.id)
 		redirect_to leaderboard_path
 	end
 end
