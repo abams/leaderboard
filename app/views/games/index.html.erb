@@ -1,15 +1,15 @@
 <div id="leaderboard">
   <table>
     <h1 style="padding-top:15px">Recent Games</h1>
+    <th>Win</th><th></th><th></th><th></th><th>Loss</th>
     <% @games.each do |game| %>
       <tr>
-        <td>
-          <%= image_tag game.winner.avatar.url(:medium), class: 'avatar-small', title: "#{game.winner.username}" %>
-        </td>
-        <td>defeated</td>
-        <td>
-          <%= image_tag game.loser.avatar.url(:medium), class: 'avatar-small', title: "#{game.loser.username}" %>
-        </td>
+        <td><%= image_tag game.winner.avatar.url(:medium), class: 'avatar-small', title: "#{game.winner.username}" %></td>
+        <td><%= game.winner.username %></td>
+        <td>vs</td>
+        <td><%= game.winner.username %></td>
+        <td><%= image_tag game.loser.avatar.url(:medium), class: 'avatar-small', title: "#{game.loser.username}" %></td>
+
       </tr>
     <% end %>
   </table>

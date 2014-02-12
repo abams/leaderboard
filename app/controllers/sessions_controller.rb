@@ -26,7 +26,7 @@ class SessionsController < ApplicationController
 
 		if user.persisted?
 			flash[:notice] = "A user with this email already exists"
-			redirect_to sessions_new_path
+			redirect_to login_path
 		else
       begin
   			user.update_attributes! user_params

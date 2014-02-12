@@ -10,7 +10,7 @@ class User < ActiveRecord::Base
   validates_length_of :password, in: 6..20, on: :create
 
   before_save :encrypt_password, :set_access_token
-  before_save :assign_avatar
+  # before_save :assign_avatar
 	after_save :clear_password
 
 	BUCKET = 'pongpong'

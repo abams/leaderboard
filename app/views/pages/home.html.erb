@@ -8,15 +8,14 @@
     <div id="leaderboard">
       <table>
         <h1 style="color:gray; padding-top:15px; padding-bottom:2px;">Recent Games</h1>
+        <th style="color:gray;">Win</th><th></th><th></th><th></th><th style="color:grey;">Loss</th>
         <% @games.each do |game| %>
           <tr>
-            <td>
-              <%= image_tag game.winner.avatar.url(:medium), class: 'avatar-small', style: 'border: 2px solid gray;', title: "#{game.winner.username}" %>
-            </td>
-            <td style="color:gray;">defeated</td>
-            <td>
-              <%= image_tag game.loser.avatar.url(:medium), class: 'avatar-small', style: 'border: 2px solid gray;', title: "#{game.loser.username}" %>
-            </td>
+            <td><%= image_tag game.winner.avatar.url(:medium), class: 'avatar-small', style: 'border: 2px solid gray;', title: "#{game.winner.username}" %></td>
+            <td style="color:gray;"><%= game.winner.username %></td>
+            <td style="color:gray;">vs</td>
+            <td style="color:gray;"><%= game.winner.username %></td>
+            <td><%= image_tag game.loser.avatar.url(:medium), class: 'avatar-small', style: 'border: 2px solid gray;', title: "#{game.loser.username}" %></td>
           </tr>
         <% end %>
       </table>
