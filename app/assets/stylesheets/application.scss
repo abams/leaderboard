@@ -18,10 +18,12 @@
 input:-webkit-autofill { color: transparent !important; }
 
 html {
+
   height: 100%;
 }
 
 body {
+
 	height: 100%;
 	color: white;
 	font-color: white;
@@ -34,11 +36,11 @@ body {
 }
 
 #home {
+
 	background-color: white;
 	margin: auto;
 	height: 1000px;
 	padding: 20px 0 20px 0;
-
 }
 
 #hero {
@@ -48,18 +50,15 @@ body {
 	font-size: 1em;
 
 	.container {
-
 	}
 
 	h1 {
-
 		font-weight: 100;
 		margin: 0;
 		font-size: 3em;
 	}
 
 	p {
-
 		color: white;
 		border-radius: 1em;
 		text-decoration: none;
@@ -67,7 +66,6 @@ body {
 	}
 
 	a {
-
 		color: white;
 		display: inline-block;
 		padding: 1em;
@@ -78,39 +76,38 @@ body {
 }
 
 #leaderboard {
-	h1 {
+	font-weight: 100;
 
+	h1 {
 		font-size: 2em;
 		font-weight: 100;
 	}
 
 	h2 {
-
 		font-weight: 100;
 		font-size: 18px;
 	}
 
 	table {
-
 		margin: auto auto;
 	  text-align: left;
 	}
 
 	td {
+		text-align: center;
 		color: white;
 		padding: 20px 10px 0 10px;
 		font-size: 20px;
 	}
 
 	p {
-
 		padding: 25px 0 0 0 ;
 	}
 }
 
 #opponents {
-	h1 {
 
+	h1 {
 		font-size: 2em;
 		font-weight: 100;
 		color: white;
