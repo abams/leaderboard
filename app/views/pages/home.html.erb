@@ -11,11 +11,11 @@
         <% @games.each do |game| %>
           <tr>
             <td>
-              <p><%= image_tag game.winner.avatar.url(:medium), class: 'avatar-small', style: 'border: 2px solid gray;', title: "#{game.winner.username}" %></p>
+              <%= image_tag game.winner.avatar.url(:medium), class: 'avatar-small', style: 'border: 2px solid gray;', title: "#{game.winner.username}" %>
             </td>
-            <td style="color:gray;">- DEF -</td>
+            <td style="color:gray;">defeated</td>
             <td>
-              <p><%= image_tag game.loser.avatar.url(:medium), class: 'avatar-small', style: 'border: 2px solid gray;', title: "#{game.loser.username}" %></p>
+              <%= image_tag game.loser.avatar.url(:medium), class: 'avatar-small', style: 'border: 2px solid gray;', title: "#{game.loser.username}" %>
             </td>
           </tr>
         <% end %>

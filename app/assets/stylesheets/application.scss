@@ -23,7 +23,10 @@ html {
 
 body {
 	height: 100%;
-  margin: 0;
+	color: white;
+	font-color: white;
+	text-align: center;
+	font-family: helvetica;
   background-repeat: no-repeat;
   background-attachment: fixed;
 	background-image: -webkit-linear-gradient(#5CCCCC, #009999);
@@ -39,36 +42,32 @@ body {
 }
 
 #hero {
-	text-align: center;
 	height:500px;
-	font-family: arial;
 	color: white;
-	padding: 2em 0 1em 0;
+	padding: 1em 0 1em 0;
 	font-size: 1em;
 
 	.container {
-		text-align: center;
-		margin: 0 auto;
+
 	}
 
 	h1 {
-		text-align: center;
+
 		font-weight: 100;
 		margin: 0;
 		font-size: 3em;
 	}
 
 	p {
-		text-align: center;
+
 		color: white;
 		border-radius: 1em;
 		text-decoration: none;
-		text-align: center;
-		margin: 0.5em 0 1.75em 0;
+
 	}
 
 	a {
-		text-align: center;
+
 		color: white;
 		display: inline-block;
 		padding: 1em;
@@ -78,43 +77,80 @@ body {
 	}
 }
 
+#leaderboard {
+	h1 {
+
+		font-size: 2em;
+		font-weight: 100;
+	}
+
+	h2 {
+
+		font-weight: 100;
+		font-size: 18px;
+	}
+
+	table {
+
+		margin: auto auto;
+	  text-align: left;
+	}
+
+	td {
+		color: white;
+		padding: 20px 10px 0 10px;
+		font-size: 20px;
+	}
+
+	p {
+
+		padding: 25px 0 0 0 ;
+	}
+}
+
 #opponents {
 	h1 {
-		text-align: center;
-		font-family: arial;
+
 		font-size: 2em;
 		font-weight: 100;
 		color: white;
+		padding-bottom: 20px;
 	}
 
 	table {
 		margin: auto auto;
+	}
+
+	td {
+		padding: 0 10px 30px 10px;
+	}
+
+	p {
+		text-align: center
 	}
 }
 
 input.login {
 	color: white;
 	font-size: 20px;
+	font-family: helvetica;
   height: 25px;
   width: 300px;
   background-color: transparent;
   border-width: 0px 0px 1px 0px;
   border-color: white;
-  /*outline:0;*/
   position: relative;
 }
 
 label.login {
-	font-color: white;
 	font-size: 20px;
 }
 
 .submit {
 	background-color: transparent;
 	color: white;
-	font-family: arial;
+	font-family: helvetica;
 	font-size: 1em;
-	text-align: center;
 	display: inline-block;
 	padding: 0.8em;
 	border: 1px solid white;
@@ -144,45 +180,7 @@ label.login {
 	height: 350px;
 	-webkit-border-radius: 300px;
 	border-radius: 300px;
-	text-align: center;
 	display: block;
 	margin-left: auto;
 	margin-right: auto;
-}
-
-#leaderboard {
-	font-color: white;
-
-	h1 {
-		text-align: center;
-		font-family: arial;
-		font-size: 2em;
-		font-weight: 100;
-		color: white;
-	}
-
-	table {
-		text-align: center;
-		margin: 0 auto;
-	  text-align: left;
-	}
-
-	tr {
-		padding: 1px;
-	}
-
-	td {
-		color: white;
-		padding: 10px;
-		font-size: 20px;
-		font-family: arial;
-	}
-
-	h2 {
-		font-color: white;
-		text-align: center;
-		font-weight: 100;
-		font-size: 18px;
-		padding-top: -500px;
-	}
 }

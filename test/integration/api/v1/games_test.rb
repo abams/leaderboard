@@ -22,7 +22,7 @@ class GamesTest < ApiTest
     post "api/v1/games"
     assert_equal 401, last_response.status
 
-    SlackReportingWorker.expects(:perform_async).once
+    SlackReportingWorker.any_instance.expects(:perform).once
 
     header 'Authorization', "Bearer #{winner.access_token}"
     post "api/v1/games", opponent_id: loser.id

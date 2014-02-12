@@ -7,6 +7,7 @@
 			<% next if u.id == @current_user.id %>
 			<td>
 				<%=link_to( image_tag(u.avatar.url(:medium), class: 'avatar'), games_path(@current_user.id, opponent_id: u.id), method: :post, title: u.username )%>
+				<p><%= u.username %></p>
 			</td>
 			<% if counter % 5 == 0 %>
 				</tr><tr>

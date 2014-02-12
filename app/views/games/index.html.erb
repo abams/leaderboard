@@ -1,14 +1,14 @@
 <div id="leaderboard">
   <table>
-    <h1 style="padding-top:15px; padding-bottom:2px;">Recent Games</h1>
+    <h1 style="padding-top:15px">Recent Games</h1>
     <% @games.each do |game| %>
       <tr>
         <td>
-          <p><%= image_tag game.winner.avatar.url(:medium), class: 'avatar-small', title: "#{game.winner.username}" %></p>
+          <%= image_tag game.winner.avatar.url(:medium), class: 'avatar-small', title: "#{game.winner.username}" %>
         </td>
-        <td>- DEF -</td>
+        <td>defeated</td>
         <td>
-          <p><%= image_tag game.loser.avatar.url(:medium), class: 'avatar-small', title: "#{game.loser.username}" %></p>
+          <%= image_tag game.loser.avatar.url(:medium), class: 'avatar-small', title: "#{game.loser.username}" %>
         </td>
       </tr>
     <% end %>
