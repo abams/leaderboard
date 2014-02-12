@@ -7,7 +7,7 @@
         <td><%= image_tag game.winner.avatar.url(:medium), class: 'avatar-small', title: "#{game.winner.username}" %></td>
         <td><%= game.winner.username %></td>
         <td>vs</td>
-        <td><%= game.winner.username %></td>
+        <td><%= game.loser.username %></td>
         <td><%= image_tag game.loser.avatar.url(:medium), class: 'avatar-small', title: "#{game.loser.username}" %></td>
 
       </tr>
