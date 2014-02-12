@@ -1,6 +1,6 @@
 class LeaderboardsController < ApplicationController
 
 	def index
-		@rankings = Ranking.for_current_month.order(score: :desc)
+		@rankings = Ranking.for_current_month
 	end
 end

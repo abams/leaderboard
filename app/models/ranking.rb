@@ -1,7 +1,7 @@
 class Ranking < ActiveRecord::Base
   belongs_to :user
 
-  scope :for_current_month, -> { where(month: Time.current.strftime('%Y%m')).order(month: :desc).first }
+  scope :for_current_month, -> { where(month: Time.current.strftime('%Y%m')).order(score: :desc) }
 
   def self.default_serialization_options
     {
