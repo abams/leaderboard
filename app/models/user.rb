@@ -10,11 +10,9 @@ class User < ActiveRecord::Base
   validates_length_of :password, in: 6..20, on: :create
 
   before_save :encrypt_password, :set_access_token
-  before_save :assign_avatar
 	after_save :clear_password
 
 	BUCKET = 'pongpong'
-	DEFAULT_AVATAR_URL = "https://#{ENV['S3_ENDPOINT']}/#{BUCKET}/avatars/default/default_1.jpg"
 
 	has_attached_file :avatar,
 		bucket: BUCKET,
@@ -24,7 +22,8 @@ class User < ActiveRecord::Base
 		styles: {
 			medium: "300x300#",
 			thumb: "100x100#"
-		}
+		},
+    :default_url => "https://#{ENV['S3_ENDPOINT']}/#{BUCKET}/avatars/default/default_:style.jpg"
 
 	def self.default_serialization_options
     {
@@ -84,11 +83,5 @@ class User < ActiveRecord::Base
 
 	def clear_password
 	  self.password = nil
-	end
-
-	def assign_avatar
-		if avatar_file_name.blank?
-			self.avatar = DEFAULT_AVATAR_URL
-		end
 	end
 end
