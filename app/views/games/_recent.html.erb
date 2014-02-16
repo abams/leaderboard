@@ -1,0 +1,13 @@
+<table>
+  <h1>Recent Games</h1>
+  <th>Win</th><th></th><th></th><th></th><th>Loss</th>
+  <% @games.each do |game| %>
+    <tr>
+      <td><%= link_to((image_tag game.winner.avatar.url(:medium)), user_path(game.winner)) %></td>
+      <td><%= link_to game.winner.username, user_path(game.winner) %></td>
+      <td>vs</td>
+      <td><%= link_to game.loser.username, user_path(game.loser) %></td>
+      <td><%= link_to((image_tag game.loser.avatar.url(:medium)), user_path(game.loser)) %></td>
+    </tr>
+  <% end %>
+</table>

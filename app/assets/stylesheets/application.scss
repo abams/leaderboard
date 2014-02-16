@@ -118,18 +118,66 @@ body {
 	p {
 		padding: 25px 0 0 0 ;
 	}
+
+	img {
+		@include avatar-small;
+		border: 2px solid white;
+	}
+
+	a {
+		@include display-name;
+	}
 }
 
-#leaderboard-gray {
+#games-white {
 	font-weight: 100;
-	color: gray;
 
 	h1 {
 		font-size: 2em;
 		font-weight: 100;
+	}
+
+	h2 {
+		font-weight: 100;
+		font-size: 18px;
+	}
+
+	table {
+		margin: auto auto;
+	  text-align: left;
+	}
+
+	th {
+		font-size: 20px;
+		font-weight: 100;
+		text-align: center;
+	}
+
+	td {
+		@include display-name;
+	}
+
+	p {
+		padding: 25px 0 0 0 ;
+	}
+
+	img {
+		@include avatar-small;
+		border: 2px solid white;
+	}
+
+	a {
+		@include display-name;
+	}
+}
+
+#games-gray {
+	font-weight: 100;
+
+	h1 {
 		color:gray;
-		padding-top:15px;
-		padding-bottom:2px;
+		font-weight: 100;
+		padding: 15px 0 2px 0;
 	}
 
 	h2 {
@@ -156,6 +204,16 @@ body {
 
 	p {
 		padding: 25px 0 0 0 ;
+	}
+
+	img {
+		@include avatar-small;
+		border: 2px solid gray;
+	}
+
+	a {
+		@include display-name;
+		color: gray;
 	}
 }
 
