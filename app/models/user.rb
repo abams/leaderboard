@@ -56,7 +56,7 @@ class User < ActiveRecord::Base
 	end
 
   def games
-    Game.where("winner_id = ? OR loser_id = ?", id, id)
+    Game.where("winner_id = ? OR loser_id = ?", id, id).order(id: :desc)
   end
 
 	def match_password(login_password="")
