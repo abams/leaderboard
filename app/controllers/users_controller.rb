@@ -2,6 +2,8 @@ class UsersController < ApplicationController
 
 	def show
 		@user = User.find_by(id: params[:id])
+		@games = @user.games.last(5)
+		@ranking = @user.rankings.last
 	end
 
 	def edit

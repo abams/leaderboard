@@ -1,6 +1,7 @@
 class User < ActiveRecord::Base
 	has_many :wins, foreign_key: :winner_id
 	has_many :losses, foreign_key: :loser_id
+  has_many :games
 	has_many :rankings
 
   EMAIL_REGEX = /\A[-a-z0-9_+\.]+\@([-a-z0-9]+\.)+[a-z0-9]{2,4}\z/i
@@ -53,6 +54,10 @@ class User < ActiveRecord::Base
 
 	  user if user && user.match_password(options[:login_password])
 	end
+
+  def games
+    Game.where("winner_id = ? OR loser_id = ?", id, id)
+  end
 
 	def match_password(login_password="")
 	  encrypted_password == BCrypt::Engine.hash_secret(login_password, salt)

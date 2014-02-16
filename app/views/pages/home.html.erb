@@ -11,11 +11,11 @@
         <th style="color:gray;">Win</th><th></th><th></th><th></th><th style="color:grey;">Loss</th>
         <% @games.each do |game| %>
           <tr>
-            <td><%= image_tag game.winner.avatar.url(:medium), class: 'avatar-small', style: 'border: 2px solid gray;', title: "#{game.winner.username}" %></td>
-            <td style="color:gray;"><%= game.winner.username %></td>
+            <td><%= link_to((image_tag game.winner.avatar.url(:medium), class: 'avatar-small', style: 'border: 2px solid gray'), user_path(game.winner)) %></a></td>
+            <td><%= link_to game.winner.username, user_path(game.winner), class: 'display-name-gray' %></td>
             <td style="color:gray;">vs</td>
-            <td style="color:gray;"><%= game.loser.username %></td>
-            <td><%= image_tag game.loser.avatar.url(:medium), class: 'avatar-small', style: 'border: 2px solid gray;', title: "#{game.loser.username}" %></td>
+            <td><%= link_to game.loser.username, user_path(game.loser), class: 'display-name-gray' %></td>
+            <td><%= link_to((image_tag game.loser.avatar.url(:medium), class: 'avatar-small', style: 'border: 2px solid gray'), user_path(game.loser)) %></a></td>
           </tr>
         <% end %>
       </table>

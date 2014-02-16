@@ -1,17 +1,27 @@
-Your avatar:
-<% if @user.id == @current_user.id %>
-	<% if @user.avatar? %>
-		<div class="avatar">
-			<%= image_tag @user.avatar.url(:medium), class: 'avatar' %>
-		</div>
-	<% else %>
-		<div class="avatar-name">
-			 <%= @user.username %>
-		</div>
-	<% end %>
-<% else %>
-
-<% end %>
-
-Update your avatar:
-<%= render 'avatar' %>
+<body>
+  <div id='hero'>
+    <%= image_tag @user.avatar.url(:medium), class: 'avatar-home' %>
+    <h1 style="padding-top:10px"><%= @user.username %></h1>
+    <p>
+      <a href="/leaderboard">View Leaderboard</a>
+      <a href="/games">View Recent Games</a>
+    </p>
+  </div>
+  <div id='home'>
+    <div id="leaderboard">
+      <table>
+        <h1 style="color:gray; padding-top:15px; padding-bottom:2px;">Recent Games</h1>
+        <th style="color:gray;">Win</th><th></th><th></th><th></th><th style="color:grey;">Loss</th>
+        <% @games.each do |game| %>
+          <tr>
+            <td><%= image_tag game.winner.avatar.url(:medium), class: 'avatar-small', style: 'border: 2px solid gray;', title: "#{game.winner.username}" %></td>
+            <td><%= link_to game.winner.username, user_path(game.winner), class: 'display-name-gray' %></td>
+            <td style="color:gray;">vs</td>
+            <td><%= link_to game.loser.username, user_path(game.loser), class: 'display-name-gray' %></td>
+            <td><%= image_tag game.loser.avatar.url(:medium), class: 'avatar-small', style: 'border: 2px solid gray;', title: "#{game.loser.username}" %></td>
+          </tr>
+        <% end %>
+      </table>
+    </div>
+  </div>
+</body>
