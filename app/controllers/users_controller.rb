@@ -1,11 +1,5 @@
 class UsersController < ApplicationController
 
-	def show
-		@user = User.find_by(id: params[:id])
-		@games = @user.games.last(5)
-		@ranking = @user.rankings.last
-	end
-
 	def edit
 		@user = User.find_by(id: params[:id])
 	end
@@ -13,7 +7,7 @@ class UsersController < ApplicationController
 	def update
 		user = User.find_by(id: params[:id])
 		user.update_attributes! user_params
-		redirect_to user_path user.id
+		redirect_to profile_path user.username
 	end
 
 	private

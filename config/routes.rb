@@ -3,7 +3,7 @@ Rails.application.routes.draw do
 
   resources :games, only: [:new, :create, :index]
   resources :leagues, only: [:new, :create, :show, :destroy]
-  resources :users, only: [:show, :edit, :update]
+  resources :users, only: [:edit, :update]
 
   get '/leaderboard' => 'leaderboards#index'
   get '/signup' => 'sessions#new'
@@ -22,4 +22,6 @@ Rails.application.routes.draw do
       resources :games, only: [:new, :create]
     end
   end
+
+  get '/:username', to: 'pages#profile', as: 'profile'
 end
