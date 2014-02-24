@@ -1,6 +1,9 @@
 class Ranking < ActiveRecord::Base
   belongs_to :user
 
+  # ELO rating constant
+  K_FACTOR = 32
+
   scope :current_month, -> { where(month: Time.current.strftime('%Y%m')).order(score: :desc) }
 
   def self.default_serialization_options
@@ -10,26 +13,12 @@ class Ranking < ActiveRecord::Base
     }
   end
 
+  # Based on ELO Rating
   def update_score(opponent_score, result)
-    diff = opponent_score - score
-    weight = diff / 5
+    actual_score = (result == :win) ? 1 : 0
+    expected_score = 1.0 / ( 1.0 + ( 10.0 ** ((opponent_score - score) / 400.0) ) )
 
-    bonus = if diff >= 0
-      if result == :win
-        10 + weight
-      else
-        -5 + [weight, 4].min
-      end
-    else
-      if result == :win
-        10 + [weight, -9].max
-      else
-        -5 + weight
-      end
-    end
-
-    # Don't let a user's score fall below 0
-    self.score = [(score + bonus), 0].max
+    self.score = [((score + (K_FACTOR * (actual_score - expected_score)))), 100].max
     self.save
   end
 end
