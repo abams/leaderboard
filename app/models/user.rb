@@ -55,8 +55,8 @@ class User < ActiveRecord::Base
 	  user if user && user.match_password(options[:login_password])
 	end
 
-  def games
-    Game.where("winner_id = ? OR loser_id = ?", id, id).order(id: :desc)
+  def recent_games(number_of_games = 5)
+    Game.where("winner_id = ? OR loser_id = ?", id, id).order('created_at DESC').limit(number_of_games)
   end
 
 	def match_password(login_password="")

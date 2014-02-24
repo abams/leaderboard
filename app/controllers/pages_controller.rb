@@ -7,10 +7,15 @@ class PagesController < ApplicationController
   end
 
   def profile
-    @user = User.find_by(username: params[:username])
+    @user = if params[:username] == 'me'
+      User.find_by(id: current_user.id)
+    else
+      User.find_by(username: params[:username])
+    end
+
     render status: :not_found, action: :not_found and return unless @user
 
-    @games = @user.games.last(5)
+    @games = @user.recent_games
     @ranking = @user.rankings.last
   end
 end
