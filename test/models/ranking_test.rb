@@ -13,7 +13,7 @@ class RankingTest < ActiveSupport::TestCase
     good_rank.save
 
     good_rank.update_score bad_rank.score, :loss
-    assert_equal 1968, good_rank.score
+    assert_equal 1900, good_rank.score
 
     bad_rank.update_score good_rank.score, :loss
     assert_equal 999, bad_rank.score
@@ -24,6 +24,6 @@ class RankingTest < ActiveSupport::TestCase
     bad_rank.save
 
     bad_rank.update_score good_rank.score, :win
-    assert_equal 1031, bad_rank.score
+    assert_equal 1099, bad_rank.score
   end
 end

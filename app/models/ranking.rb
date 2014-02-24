@@ -2,7 +2,7 @@ class Ranking < ActiveRecord::Base
   belongs_to :user
 
   # ELO rating constant
-  K_FACTOR = 32
+  K_FACTOR = 100
 
   scope :current_month, -> { where(month: Time.current.strftime('%Y%m')).order(score: :desc) }
 
