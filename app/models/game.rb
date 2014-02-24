@@ -19,12 +19,12 @@ class Game < ActiveRecord::Base
     loser_rank = loser.rankings.find_or_initialize_by(month: current_month)
 
     if !winner_rank.persisted?
-      winner_rank.score = winner.rankings.where(month: previous_month).first.try(:score) || 0
+      winner_rank.score = winner.rankings.where(month: previous_month).first.try(:score) || 1000
       winner_rank.save
     end
 
     if !loser_rank.persisted?
-      loser_rank.score = loser.rankings.where(month: previous_month).first.try(:score) || 0
+      loser_rank.score = loser.rankings.where(month: previous_month).first.try(:score) || 1000
       loser_rank.save
     end
 
