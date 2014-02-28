@@ -1,3 +1,5 @@
+require './app/workers/slack_tournament_worker'
+
 class TournamentsController < ApplicationController
 
   def show
@@ -8,7 +10,6 @@ class TournamentsController < ApplicationController
     @quarter_left = [@tournament.quarter_finals.games.first]
     @quarter_right = [@tournament.quarter_finals.games.last]
     @final = @tournament.finals.games.first
-
   end
 
   def new
