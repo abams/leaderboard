@@ -18,6 +18,6 @@ class SlackReportingWorker
   def message
     "#{@game.winner.username} defeated #{@game.loser.username}!
     #{@game.winner.username} now has #{@game.winner.rankings.last.score} points.
-    #{ENV['LEADERBOARD_URL']}"
+    #{ENV['LEADERBOARD_URL']}/leaderboard"
   end
 end
