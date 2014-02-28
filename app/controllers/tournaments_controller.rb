@@ -26,8 +26,7 @@ class TournamentsController < ApplicationController
 
     ids_from_rankings = Ranking.current_month.where(user_id: params[:user_ids]).map(&:user_id)
 
-    unranked_ids = params[:user_ids] - ids_from_rankings
-    user_ids = (ids_from_rankings << unranked_ids).flatten
+    user_ids = (ids_from_rankings + params[:user_ids]).uniq
 
     @tournament.semi_finals.populate_games(user_ids)
 
