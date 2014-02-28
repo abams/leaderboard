@@ -4,11 +4,11 @@ class Tournament < ActiveRecord::Base
   has_many :rounds, dependent: :destroy
 
   def semi_finals
-    rounds.where(name: 'semi-finals').first
+    rounds.where(name: 'semi-finals').order(:id).first
   end
 
   def quarter_finals
-    rounds.where(name: 'quarter-finals').first
+    rounds.where(name: 'quarter-finals').order(:id).first
   end
 
   def finals
