@@ -1,0 +1,115 @@
+<div id="tournament">
+  <h1>Tournament</h1>
+  <table>
+    <tr>
+      <td style="border-bottom: 1px solid white;">
+        <% if @semi_left.first.winner_id != 0 %>
+          <%= render partial: 'column', locals: { user: @semi_left.first.winner, round: 'left_semi_1' } %>
+        <% end %>
+      </td>
+      <td></td><td></td><td></td><td></td><td></td><td></td>
+      <td style="border-bottom: 1px solid white;">
+        <% if @semi_right.first.winner_id != 0 %>
+          <%= render partial: 'column', locals: { user: @semi_right.first.winner, round: 'right_semi_1' } %>
+        <% end %>
+      </td>
+    </tr>
+    <tr>
+      <td></td>
+      <td style="border-bottom: 1px solid white;">
+        <% if @quarter_left.first.winner_id != 0 %>
+          <%= render partial: 'column', locals: { user: @quarter_left.first.winner, round: 'left_quarter_1' } %>
+        <% end %>
+      </td>
+      <td></td><td></td><td></td><td></td>
+      <td style="border-bottom: 1px solid white;">
+        <% if @quarter_right.first.winner_id != 0 %>
+          <%= render partial: 'column', locals: { user: @quarter_right.first.winner, round: 'right_quarter_1' } %>
+        <% end %>
+      </td>
+      <td></td>
+    </tr>
+    <tr>
+      <td style="border-bottom: 1px solid white;">
+        <% if @semi_left.first.loser_id != 0 %>
+          <%= render partial: 'column', locals: { user: @semi_left.first.loser, round: 'left_semi_1' } %>
+        <% else %>
+          <h1 class="bye">bye</h1>
+        <% end %>
+      </td>
+      <td></td><td></td><td></td><td></td><td></td><td></td>
+      <td style="border-bottom: 1px solid white;">
+        <% if @semi_right.first.loser_id != 0 %>
+          <%= render partial: 'column', locals: { user: @semi_right.first.loser, round: 'right_semi_1' } %>
+        <% else %>
+          <h1 class="bye">bye</h1>
+        <% end %>
+      </td>
+    </tr>
+    <tr>
+      <td></td><td></td>
+      <td style="border-bottom: 1px solid white;">
+        <% if @final.winner_id != 0 %>
+          <%= render partial: 'column', locals: { user: @final.winner, round: 'final' } %>
+        <% end %>
+      </td>
+      <td></td><td></td>
+      <td style="border-bottom: 1px solid white;">
+        <% if @final.loser_id != 0 %>
+          <%= render partial: 'column', locals: { user: @final.loser, round: 'final' } %>
+        <% end %>
+      </td>
+      <td></td><td></td>
+    </tr>
+    <tr>
+      <td style="border-bottom: 1px solid white;">
+        <% if @semi_left.last.winner_id != 0 %>
+          <%= render partial: 'column', locals: { user: @semi_left.last.winner, round: 'left_semi_2' } %>
+        <% end %>
+      </td>
+      <td></td><td></td><td></td><td></td><td></td><td></td>
+      <td style="border-bottom: 1px solid white;">
+        <% if @semi_right.last.winner_id != 0 %>
+          <%= render partial: 'column', locals: { user: @semi_right.last.winner, round: 'right_semi_2' } %>
+        <% end %>
+      </td>
+    </tr>
+    <tr>
+      <td></td>
+      <td style="border-bottom: 1px solid white;">
+        <% if @quarter_left.first.loser_id != 0 %>
+          <%= render partial: 'column', locals: { user: @quarter_left.first.loser, round: 'left_quarter_1' } %>
+        <% end %>
+      </td>
+      <td></td><td></td><td></td><td></td>
+      <td style="border-bottom: 1px solid white;">
+        <% if @quarter_right.first.loser_id != 0 %>
+          <%= render partial: 'column', locals: { user: @quarter_right.first.loser, round: 'right_quarter_1' } %>
+        <% end %>
+      </td>
+      <td></td>
+    </tr>
+    <tr>
+      <td style="border-bottom: 1px solid white;">
+        <% if @semi_left.last.loser_id != 0 %>
+          <%= render partial: 'column', locals: { user: @semi_left.last.loser, round: 'left_semi_2' } %>
+        <% else %>
+          <h1 class="bye">bye</h1>
+        <% end %>
+      </td>
+      <td></td><td></td><td></td><td></td><td></td><td></td>
+      <td style="border-bottom: 1px solid white;">
+        <% if @semi_right.last.loser_id != 0 %>
+          <%= render partial: 'column', locals: { user: @semi_right.last.loser, round: 'right_semi_2' } %>
+        <% else %>
+          <h1 class="bye">bye</h1>
+        <% end %>
+      </td>
+    </tr>
+  </table>
+</div>
+<% if @final.winner_id != 0 && @final.loser_id != 0 && @tournament.winner_id %>
+  <div id="winner">
+    <%= link_to( image_tag(@tournament.winner.avatar.url(:medium), class: 'avatar-home'), profile_path(@tournament.winner.username))%>
+  </div>
+<% end %>

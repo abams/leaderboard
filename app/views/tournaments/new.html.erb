@@ -1,0 +1,33 @@
+<% counter = 1 %>
+<div id='opponents'>
+  <h1>Who is playing?</h1>
+  <%= form_tag tournaments_path, method: :post do %>
+    <table>
+    <tr>
+      <% @users.each do |u| %>
+        <td>
+          <%= image_tag(u.avatar.url(:medium), class: 'avatar') %>
+          <p>
+            <%= u.username %>
+            <%= check_box_tag 'user_ids[]', u.id, false %>
+          </p>
+        </td>
+        <% if counter % 5 == 0 %>
+          </tr>
+          </table><table>
+          <tr>
+        <% end %>
+        <% counter += 1 %>
+      <% end %>
+    </tr>
+    </table>
+    <%= submit_tag "Create Tournament", class: "submit" %>
+  <% end %>
+</div>
+<div id="hero">
+  <p>
+    <a href="/leaderboard">View Leaderboard</a>
+    <a href="/games">View Recent Games</a>
+  </p>
+</div>
+

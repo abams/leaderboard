@@ -2,8 +2,8 @@ Rails.application.routes.draw do
   root :to => 'pages#home'
 
   resources :games, only: [:new, :create, :index]
-  resources :leagues, only: [:new, :create, :show, :destroy]
   resources :users, only: [:edit, :update]
+  resources :tournaments, except: :destroy
 
   get '/leaderboard' => 'leaderboards#index'
   get '/signup' => 'sessions#new'
