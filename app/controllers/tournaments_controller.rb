@@ -30,7 +30,7 @@ class TournamentsController < ApplicationController
 
     @tournament.semi_finals.populate_games(user_ids)
 
-    # SlackTournamentWorker.new.perform(@tournament.id)
+    SlackTournamentWorker.new.perform(@tournament.id)
     redirect_to tournament_path(@tournament.id)
   end
 
@@ -54,7 +54,7 @@ class TournamentsController < ApplicationController
       @tournament.winner_id = params[:winner_id]
       @tournament.save
 
-      # SlackTournamentWorker.new.perform(tournament.id)
+      SlackTournamentWorker.new.perform(tournament.id)
     end
 
     redirect_to tournament_path(@tournament.id)
