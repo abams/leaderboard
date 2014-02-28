@@ -20,7 +20,7 @@ class SlackTournamentWorker
       "#{@tournament.winner.username} has won this weeks tournament!"
     else
       "This week's tournament has been posted, find your matchup.
-      #{ENV['LEADERBOARD_URL']}/tournament/#{@tournament.id}"
+      #{ENV['LEADERBOARD_URL']}/tournaments/#{@tournament.id}"
     end
   end
 end

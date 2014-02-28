@@ -26,7 +26,10 @@ class TournamentsController < ApplicationController
 
     ids_from_rankings = Ranking.current_month.where(user_id: params[:user_ids]).map(&:user_id)
 
-    @tournament.semi_finals.populate_games(ids_from_rankings)
+    unranked_ids = params[:user_ids] - ids_from_rankings
+    user_ids = (unranked_ids << unranked_ids).flatten
+
+    @tournament.semi_finals.populate_games(user_ids)
 
     SlackTournamentWorker.new.perform(@tournament.id)
     redirect_to tournament_path(@tournament.id)
