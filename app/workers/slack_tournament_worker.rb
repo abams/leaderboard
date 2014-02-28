@@ -1,4 +1,4 @@
-class SlackReportingWorker
+class SlackTournamentWorker
   # include Sidekiq::Worker
 
   def perform(game_id)
