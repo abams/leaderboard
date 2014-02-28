@@ -28,7 +28,7 @@ class TournamentsController < ApplicationController
 
     @tournament.semi_finals.populate_games(ids_from_rankings)
 
-    SlackTournamentWorker.new.perform(tournament.id)
+    SlackTournamentWorker.new.perform(@tournament.id)
     redirect_to tournament_path(@tournament.id)
   end
 
