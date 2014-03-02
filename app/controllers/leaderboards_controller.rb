@@ -1,6 +1,6 @@
 class LeaderboardsController < ApplicationController
 
 	def index
-		@rankings = Ranking.all
+		@rankings = Ranking.order(score: :desc)
 	end
 end
