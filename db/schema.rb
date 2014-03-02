@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140221232044) do
+ActiveRecord::Schema.define(version: 20140302175723) do
 
   create_table "games", force: true do |t|
     t.integer  "winner_id",  null: false
@@ -23,11 +23,11 @@ ActiveRecord::Schema.define(version: 20140221232044) do
 
   create_table "rankings", force: true do |t|
     t.integer  "user_id"
-    t.integer  "month"
-    t.integer  "score",      default: 0, null: false
+    t.integer  "score",          default: 1000, null: false
     t.integer  "rank"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "previous_score", default: 1000, null: false
   end
 
   create_table "rounds", force: true do |t|

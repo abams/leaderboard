@@ -24,7 +24,7 @@ class TournamentsController < ApplicationController
       round.create_games
     end
 
-    ids_from_rankings = Ranking.current_month.where(user_id: params[:user_ids]).map(&:user_id)
+    ids_from_rankings = Ranking.where(user_id: params[:user_ids]).map(&:user_id)
 
     user_ids = (ids_from_rankings + params[:user_ids]).uniq
 

@@ -4,8 +4,6 @@ class Ranking < ActiveRecord::Base
   # ELO rating constant
   K_FACTOR = 100
 
-  scope :current_month, -> { where(month: Time.current.strftime('%Y%m')).order(score: :desc) }
-
   def self.default_serialization_options
     {
       only: [:score],
@@ -15,6 +13,9 @@ class Ranking < ActiveRecord::Base
 
   # Based on ELO Rating
   def update_score(opponent_score, result)
+    # Make it easier to rollback accidential game creation
+    self.previous_score = score
+
     actual_score = (result == :win) ? 1 : 0
     expected_score = 1.0 / ( 1.0 + ( 10.0 ** ((opponent_score - score) / 400.0) ) )
 

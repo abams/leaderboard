@@ -26,4 +26,9 @@ class UserTest < ActiveSupport::TestCase
 
     assert_equal 5, user.recent_games.count
   end
+
+  test "ranking generation" do
+    user = create :user
+    assert 1000, user.ranking.score
+  end
 end

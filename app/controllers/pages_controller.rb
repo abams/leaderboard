@@ -16,6 +16,6 @@ class PagesController < ApplicationController
     render status: :not_found, action: :not_found and return unless @user
 
     @games = @user.recent_games
-    @ranking = @user.rankings.last
+    @ranking = @user.ranking
   end
 end

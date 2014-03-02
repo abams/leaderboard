@@ -3,7 +3,7 @@ class User < ActiveRecord::Base
 	has_many :losses, foreign_key: :loser_id
   has_many :tournaments, foreign_key: :winner_id
   has_many :games
-	has_many :rankings
+	has_one :ranking
 
 
   EMAIL_REGEX = /\A[-a-z0-9_+\.]+\@([-a-z0-9]+\.)+[a-z0-9]{2,4}\z/i
@@ -12,6 +12,7 @@ class User < ActiveRecord::Base
   validates :password, confirmation: true
   validates_length_of :password, in: 6..20, on: :create
 
+  after_create :generate_ranking
   before_save :encrypt_password, :set_access_token
 	after_save :clear_password
 
@@ -65,10 +66,6 @@ class User < ActiveRecord::Base
 	  encrypted_password == BCrypt::Engine.hash_secret(login_password, salt)
 	end
 
-	def current_rank
-		rankings.where(month: Time.current.strftime('%Y%m')).first
-	end
-
 	def avatar_url
 		avatar.url(:medium)
 	end
@@ -92,4 +89,8 @@ class User < ActiveRecord::Base
 	def clear_password
 	  self.password = nil
 	end
+
+  def generate_ranking
+    Ranking.create(user_id: id)
+  end
 end

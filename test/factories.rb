@@ -1,6 +1,7 @@
 FactoryGirl.define do
 
 	factory :user, :aliases => [:winner, :loser] do
+
     sequence(:username) { |n| "abcde#{n}"}
     sequence(:email) { |n| "valid_email#{n}@email.com"}
     sequence(:password) { |n| "passw#{n}rd"}
@@ -13,8 +14,6 @@ FactoryGirl.define do
 
   factory :ranking do
     user
-    score 100
-    month Time.current.strftime('%Y%m')
   end
 
 end
