@@ -1,15 +1,12 @@
 class Game < ActiveRecord::Base
   belongs_to :loser, class_name: 'User', foreign_key: :loser_id
   belongs_to :winner, class_name: 'User', foreign_key: :winner_id
-  belongs_to :round
 
 	validate :cannot_play_self
 
   after_save :update_player_rankings
 
   serialize :score
-
-  scope :regular_season, -> { where(round_id: nil) }
 
   private
 
@@ -19,9 +16,6 @@ class Game < ActiveRecord::Base
   end
 
   def update_player_rankings
-    # Don't update palyer rankings if game is part of a tournament
-    return if round.present?
-
     winner_score = winner.ranking.score
     loser_score = loser.ranking.score
 

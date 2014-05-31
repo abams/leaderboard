@@ -1,7 +1,6 @@
 class User < ActiveRecord::Base
 	has_many :wins, foreign_key: :winner_id
 	has_many :losses, foreign_key: :loser_id
-  has_many :tournaments, foreign_key: :winner_id
   has_many :games
 	has_one :ranking
 
@@ -59,7 +58,7 @@ class User < ActiveRecord::Base
 	end
 
   def recent_games(number_of_games = 5)
-    Game.regular_season.where("winner_id = ? OR loser_id = ?", id, id).order('created_at DESC').limit(number_of_games)
+    Game.where("winner_id = ? OR loser_id = ?", id, id).order('created_at DESC').limit(number_of_games)
   end
 
 	def match_password(login_password="")

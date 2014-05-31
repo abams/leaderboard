@@ -11,14 +11,13 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140302175723) do
+ActiveRecord::Schema.define(version: 20140531191739) do
 
   create_table "games", force: true do |t|
     t.integer  "winner_id",  null: false
     t.integer  "loser_id",   null: false
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.integer  "round_id"
   end
 
   create_table "rankings", force: true do |t|
@@ -28,19 +27,6 @@ ActiveRecord::Schema.define(version: 20140302175723) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "previous_score", default: 1000, null: false
-  end
-
-  create_table "rounds", force: true do |t|
-    t.datetime "created_at"
-    t.datetime "updated_at"
-    t.integer  "tournament_id", null: false
-    t.string   "name"
-  end
-
-  create_table "tournaments", force: true do |t|
-    t.datetime "created_at"
-    t.datetime "updated_at"
-    t.integer  "winner_id"
   end
 
   create_table "users", force: true do |t|

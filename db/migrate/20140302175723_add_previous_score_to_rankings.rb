@@ -3,7 +3,6 @@ class AddPreviousScoreToRankings < ActiveRecord::Migration
     add_column :rankings, :previous_score, :integer, default: 1000, null: false
     remove_column :rankings, :month
     change_column_default :rankings, :score, 1000
-
   end
 
   def down

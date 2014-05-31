@@ -1,7 +1,7 @@
 class GamesController < ApplicationController
 
 	def index
-		@games = Game.regular_season.order(id: :desc).limit(5)
+		@games = Game.order(id: :desc).limit(5)
 	end
 
 	def new

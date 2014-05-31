@@ -11,7 +11,7 @@ class SlackReportingWorker
   def options
     {
       message: message,
-      channel: 'pingpong-private'
+      channel: ENV['SLACK_CHANNEL'] || 'pingpong-private'
     }
   end
 
