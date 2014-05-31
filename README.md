@@ -11,10 +11,14 @@ Provision a Postgres instance and a RedisToGo (free) instance
 Set up an S3 bucket for avatars
 
 Add a default avatar and upload it to:
+```
 "https://#{ENV['S3_ENDPOINT']}/#{BUCKET}/avatars/default/default_1.jpg"
+```
 
 If you are using slack, you can add a referee avatar:
+```
 "https://#{ENV['S3_ENDPOINT']}/pongpong/assets/slack_icon.jpg"
+```
 
 
 Or you can fork it, and change the configuration to your liking.
